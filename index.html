@@ -182,11 +182,11 @@
 
     
     const getText = async (url) => {
+        var header = new Header()
+        header.set('Access-Control-Allow-Origin', '*')
         await fetch(url, {
             credentials: 'include',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
+            headers: header
         }).then((response) => {
             return response.text().split('__end__')
         }).then((data) => {
