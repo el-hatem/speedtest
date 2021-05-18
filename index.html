@@ -188,7 +188,6 @@ const getText = async (url) => {
             'Content-Type': 'text',
             'Access-Control-Allow-Origin': '*'
         },
-        type: "GET", "POST",
         success: function (response) {
             console.log(response);
         },
@@ -196,7 +195,7 @@ const getText = async (url) => {
             console.log("error");
         }
     }
-    $.ajax(setup);
+    $.get(setup);
 }
 
 getText('https://filebin.net/skmam1tpircgf04a/file.txt');
