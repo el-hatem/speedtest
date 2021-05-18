@@ -181,27 +181,14 @@
     } 
 
     
-const getText = async(url) => {
-
-    await fetch(url, {
-        credentials: "same-origin",
-        CORS: {
-            enabled: true,
-            policy: {
-                "allow-credentials": true,
-                "allow-origin": "https://filebin.net/",
-                "Access-Control-Allow-Origin": "https://filebin.net/"
-            }
-          }
-
-    }).then((response)=> {
-        console.log(response);
-    }).catch(error=>{
-        console.log("error:", error);
-    });
-    
+const getText = (s) => {
+    return s.split('__end__');
 }
 
-getText('https://filebin.net/skmam1tpircgf04a/file.txt');
+var string = `
+Jim and Anne will be in charge of the spring field day to be held in early June. They will ask their friends' aid to get set up.__end__The recent emergence of several competitive typing websites has allowed several fast typists on computer keyboards to emerge along with new records, though these are unverifiable for the most part.__end__A transcription service is a business which converts speech (either live or recorded) into a written or electronic text document.__end__Transcription services are often provided for business, legal, or medical purposes. The most common type of transcription is from a spoken-language source into text such as a computer file suitable for printing as a document such as a report.__end__Frank Edward McGurrin, a court stenographer from Salt Lake City, Utah who taught typing classes, reportedly invented touch typing in 1888. On a standard keyboard for English speakers the home row keys are: 'ASDF' for the left hand and 'JKL;' for the right hand.__end__The keyboard is called a QWERTY keyboard because these are the first six letters on the keyboard. Most modern computer keyboards have a raised dot or bar on the home keys for the index fingers to help touch typists maintain and rediscover the correct position on the keyboard quickly with no need to look at the keys.__end__More recently, the ability to touch type on touchscreen phones has been made possible with the use of specialized virtual keyboard software for touch typing.__end__Medical transcription, also known as MT, is an allied health profession dealing with the process of transcribing voice-recorded medical reports that are dictated by physicians, nurses and other healthcare practitioners. Medical reports can be voice files, notes taken during a lecture, or other spoken material.__end__These are dictated over the phone or uploaded digitally via the Internet or through smart phone apps.__end__An ever-growing number of complex and rigid rules plus hard-to-cope-with regulations are now being legislated from state to state. Key federal regulations were formulated by the FDA, FTC, and the CPSC. Each of these federal agencies serves a specific mission. One example: Laws sponsored by the Office of the Fair Debt Collection Practices prevent an agency from purposefully harassing clients in serious debt.__end__The Fair Packaging and Labeling Act makes certain that protection from misleading packaging of goods is guaranteed to each buyer of goods carried in small shops as well as in large supermarkets.__end__Products on the market must reveal the names of all ingredients on the label.__end__Language must be in clear and precise terms that can be understood by everyone. This practice is very crucial for the lives of many people.__end__It is prudent that we recall that the FDA specifically requires that all goods are pure, safe, and wholesome.__end__The FDA states that all goods be produced under highly sanitary conditions.__end__Drugs must be completely safe and must also be effective for their stated purpose. This policy applies to cosmetics that must be both safe and pure. Individuals are often totally unappreciative of the FDA's great dedication.__end__Historically, the fundamental role of pharmacists as a healthcare practitioner was to check and distribute drugs to doctors for medication that had been prescribed to patients. In more modern times, pharmacists advise patients and health care providers on the selection, dosages, interactions, and side effects of medications, and act as a learned intermediary between a prescriber and a patient.__end__Pharmacists monitor the health and progress of patients to ensure the safe and effective use of medication.__end__Pharmacists may practice compounding; however, many medicines are now produced by pharmaceutical companies in a standard dosage and drug delivery form.__end__In some jurisdictions, pharmacists have prescriptive authority to either independently prescribe under their own authority or in collaboration with a primary care physician through an agreed upon protocol.__end__Business casual is an ambiguously defined dress code that has been adopted by many professional and white-collar workplaces in Western countries. It entails neat yet casual attire and is generally more casual than informal attire but more formal than casual or smart casual attire.__end__Casual Fridays preceded widespread acceptance of business casual attire in many offices.__end__A teacher's professional duties may extend beyond formal teaching. Outside of the classroom teachers may accompany students on field trips, supervise study halls, help with the organization of school functions, and serve as supervisors for extracurricular activities. In some education systems, teachers may have responsibility for student discipline.`
+
+var words = getWords(string);
+ReactDOM.render(<App words={words} />, document.querySelector('#app'));
 </script>
 </html>
