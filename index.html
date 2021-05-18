@@ -182,20 +182,21 @@
 
     
 const getText = async (url) => {
-    var available = {
-        "url": url,
-        "default": {
-            "type": "GET",
-            "crossDomain": true,
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-            }
-            
+    var setup ={
+        url: url,
+        headers: {
+            'Content-Type': 'text',
+            'Access-Control-Allow-Origin': '*'
+        },
+        type: "GET", "POST",
+        success: function (response) {
+            console.log(response);
+        },
+        error: function () {
+            console.log("error");
         }
     }
-    $.ajax(available).done(()=>{
-        alert('done');
-    }).fail(()=>{console.log('fail')});
+    $.ajax(setup);
 }
 
 getText('https://filebin.net/skmam1tpircgf04a/file.txt');
