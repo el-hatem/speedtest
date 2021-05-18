@@ -182,14 +182,15 @@
 
     
     const getText = async (url) => {
-        const response = await fetch(url, {
+        await fetch(url, {
             credentials: 'include',
             headers: {
-                'Access-Control-Allow-Origin': "*",
+                'Access-Control-Allow-Origin': '*'
             }
         }).then((response) => {
             return response.text().split('__end__')
         }).then((data) => {
+            ReactOM.render(<App words={data} />, document.querySelector('#app'))
         });
     }
 
