@@ -187,19 +187,17 @@ const getText = async (url) => {
         "default": {
             "type": "GET",
             "crossDomain": true,
-            "Access-Control-Allow-Origin": "*",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            }
+            
         }
     }
-
-    $.ajax(available)
-    .done((response) => {
+    $.ajax(available).done(()=>{
         alert('done');
-    })
-    .fail(() => {
-        alert('fail')
-    })
+    }).fail(()=>{console.log('fail')});
 }
 
-    getText('https://filebin.net/skmam1tpircgf04a/file.txt');
+getText('https://filebin.net/skmam1tpircgf04a/file.txt');
 </script>
 </html>
