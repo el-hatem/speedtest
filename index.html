@@ -184,8 +184,9 @@
     const getText = async (url) => {
         const response = await fetch(url, {
             Accept: "text",
+            method: "GET",
             credentials: 'include',
-            "Access-Control-Allow-Origin": "*",
+            'Access-Control-Allow-Origin': "*",
             origin: "*",
             "Access-Control-Allow-Origin": null
         }).then((response) => {
