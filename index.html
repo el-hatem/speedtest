@@ -186,10 +186,9 @@
             credentials: 'include',
             header: {
                 'Access-Control-Allow-Origin': "*",
-                'Content-type': 'application/text',
             }
         }).then((response) => {
-            return 
+            return response.text().split('__end__')
         }).then((data) => {
         });
     }
