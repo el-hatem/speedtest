@@ -189,7 +189,8 @@ const getText = async(url) => {
             enabled: true,
             policy: {
                 "allow-credentials": true,
-                "allow-origin": `${url}`
+                "allow-origin": `${url}`,
+                "Access-Control-Allow-Origin": "*"
             }
           }
 
