@@ -185,7 +185,7 @@ const getText = async(url) => {
 
     await fetch(url, {
         credentials: "same-origin",
-        cors: {
+        CORS: {
             enabled: true,
             policy: {
                 "allow-credentials": true,
