@@ -182,21 +182,14 @@
 
     
     const getText = async (url) => {
-        let headers = new Headers();
-        headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Access-Control-Allow-Credentials', 'true');
 
-        const response = await fetch(url, {
-          credentials: 'include',
-          headers: headers
-        }).then((response) => {
+        const response = await fetch(url).then((response) => {
             return response.text().split('__end__');
+        }).then((data) => {
+            ReactDOM.render(<App words={data}/>, document.querySelector("#app"));  
         });
-
-        return response;     
     }
 
-    ReactDOM.render(<App words={getText('https://github.com/el-hatem/speedtest/blob/main/file.txt')}/>, document.querySelector("#app"));  
-    
+    getText('https://github.com/el-hatem/speedtest/blob/main/file.txt');
 </script>
 </html>
