@@ -182,7 +182,7 @@
 
     
     const getText = async (url) => {
-        var header = new Header()
+        var header = new Headers();
         header.set('Access-Control-Allow-Origin', '*')
         await fetch(url, {
             credentials: 'include',
