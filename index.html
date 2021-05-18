@@ -181,18 +181,19 @@
     } 
 
     
-    const getText = async (url) => {
-        var header = new Headers();
-        header.set('Access-Control-Allow-Origin', '*')
-        await fetch(url, {
-            credentials: 'include',
-            headers: header
-        }).then((response) => {
-            return response.text().split('__end__')
-        }).then((data) => {
-            ReactOM.render(<App words={data} />, document.querySelector('#app'))
-        });
-    }
+const getText = async (url) => {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           alert('here')
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xhttp.send();
+}
 
     getText('https://filebin.net/skmam1tpircgf04a/file.txt');
 </script>
