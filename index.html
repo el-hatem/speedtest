@@ -183,12 +183,11 @@
     
     const getText = async (url) => {
         const response = await fetch(url, {
-            Accept: "text",
-            method: "GET",
             credentials: 'include',
-            'Access-Control-Allow-Origin': "*",
-            origin: "*",
-            "Access-Control-Allow-Origin": null
+            headers: {
+                'Access-Control-Allow-Origin': "*",
+                'Content-type': 'application/text',
+            }
         }).then((response) => {
             return 
         }).then((data) => {
